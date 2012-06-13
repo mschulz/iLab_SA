@@ -1,0 +1,40 @@
+<%@ Register TagPrefix="uc1" TagName="footer" Src="footer.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="userNav" Src="userNav.ascx" %>
+<%@ Register TagPrefix="uc1" TagName="banner" Src="banner.ascx" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="schedule.aspx.cs" Inherits="iLabs.ServiceBroker.schedule" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Schedule Experiment</title>
+    <style type="text/css"> @import url( css/main.css );  </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <a name="top"></a>
+			<div id="outerwrapper">
+				<uc1:banner id="Banner1" runat="server"></uc1:banner>
+				<uc1:userNav id="UserNav1" runat="server"></uc1:userNav>
+				<br clear="all">
+				<div id="innerwrapper">
+					<div id="pageintro">
+						<h1>Schedule an experiment on a User-Side Scheduling Server</h1>
+						<!-- <p>Select the group(s) you'd like to join below.</p> -->
+						<!-- Errormessage-->
+						<asp:Label Runat="server" id="lblResponse" Visible="False"></asp:Label>
+                        <br />
+                        <br />
+                        <asp:Button ID="btnSchedule" runat="server" Text="Schedule Experiment" CssClass="button" Height="22px" OnClick="btnSchedule_Click" ToolTip="Schedule Experiment"/><!--End error message --></div>
+					<!-- end pageintro div -->
+					<div id="pagecontent">
+					</div>
+					<br clear="all">
+					<!-- end pagecontent div -->
+				</div>
+				<!-- end innerwrapper div -->
+				<uc1:footer id="Footer1" runat="server"></uc1:footer>
+			</div>
+    </form>
+</body>
+</html>

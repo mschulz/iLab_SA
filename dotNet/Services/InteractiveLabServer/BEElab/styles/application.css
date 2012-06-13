@@ -1,0 +1,82 @@
+body {
+  font-family: 'Imprima', sans-serif;
+  font-size: 16px; }
+
+label,
+.series-box,
+.hidden {
+  display: none; }
+
+#bee-room-modal {
+  width: 600px;
+  height: 600px;
+  position: relative;
+  background: transparent url(../images/bee-room.png) top left no-repeat;
+  margin: 0 auto; }
+  #bee-room-modal .sensor {
+    font-family: 'Helvetica', sans-serif;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    border: 1px solid gray;
+    position: absolute;
+    cursor: pointer;
+    background: white; }
+    #bee-room-modal .sensor.on {
+      background: #ffffd1; }
+  #bee-room-modal .sensor.ceil {
+    top: 120px; }
+    #bee-room-modal .sensor.ceil.interior {
+      left: 35%; }
+    #bee-room-modal .sensor.ceil.exterior {
+      left: 55%; }
+  #bee-room-modal .sensor.floor {
+    bottom: 100px; }
+    #bee-room-modal .sensor.floor.interior {
+      left: 55%; }
+    #bee-room-modal .sensor.floor.exterior {
+      left: 65%; }
+  #bee-room-modal .sensor.south {
+    bottom: 220px; }
+    #bee-room-modal .sensor.south.interior {
+      left: 13%;
+      bottom: 260px; }
+    #bee-room-modal .sensor.south.exterior {
+      left: 5%; }
+  #bee-room-modal .sensor.north {
+    top: 260px; }
+    #bee-room-modal .sensor.north.interior {
+      right: 13%;
+      top: 310px; }
+    #bee-room-modal .sensor.north.exterior {
+      right: 5%; }
+  #bee-room-modal .sensor.east {
+    top: 240px; }
+    #bee-room-modal .sensor.east.interior {
+      left: 55%; }
+    #bee-room-modal .sensor.east.exterior {
+      left: 65%; }
+  #bee-room-modal .sensor.west {
+    top: 340px; }
+    #bee-room-modal .sensor.west.interior {
+      left: 25%; }
+    #bee-room-modal .sensor.west.exterior {
+      left: 35%; }
+  #bee-room-modal .sensor.air {
+    top: 250px; }
+    #bee-room-modal .sensor.air.north {
+      right: 25%;
+      top: 350px; }
+    #bee-room-modal .sensor.air.south {
+      left: 25%; }
+
+.modal {
+  display: none;
+  z-index: 10000;
+  background-color: #FFF;
+  width: 675px;
+  min-height: 670px;
+  border: 1px solid #666;
+  text-align: center; }

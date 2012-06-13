@@ -1,0 +1,59 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "http://localhost/scheduling/UserSideSchedulingServer/", "http://localhost/scheduling/UserSideSchedulingServer", "{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}"
+	ProjectSection(WebsiteProperties) = preProject
+		ProjectReferences = "{1138C760-3D21-4592-BCF0-00C38449F4CC}|ProcessAgentLibrary.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/UserSideSchedulingServer"
+		Debug.AspNetCompiler.PhysicalPath = "..\UserSideSchedulingServer\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\UserSideSchedulingServer\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/UserSideSchedulingServer"
+		Release.AspNetCompiler.PhysicalPath = "..\UserSideSchedulingServer\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\UserSideSchedulingServer\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\UserSideSchedulingServer\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessAgentLibrary", "..\..\Ticketing\iLabs_NET20\iLabs\ProcessAgentLibrary\ProcessAgentLibrary.csproj", "{1138C760-3D21-4592-BCF0-00C38449F4CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Debug|.NET.ActiveCfg = Debug|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Debug|.NET.Build.0 = Debug|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Release|.NET.ActiveCfg = Release|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Release|.NET.Build.0 = Release|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Release|Any CPU.ActiveCfg = Release|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Release|Mixed Platforms.ActiveCfg = Release|.NET
+		{37F0BDEE-A913-4256-87FD-CF6B84C5FF84}.Release|Mixed Platforms.Build.0 = Release|.NET
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Release|.NET.ActiveCfg = Release|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1138C760-3D21-4592-BCF0-00C38449F4CC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

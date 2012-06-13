@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Rabih Zbib (MIT) -->
+<xs:schema xmlns="http://ilab.mit.edu/iLabs/tickets" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ilab.mit.edu/iLabs/tickets" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <!--Simple Types-->
+  <xs:simpleType name="guidST">
+    <xs:annotation>
+      <xs:documentation>string representation of GUID</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="experimentID_ST">
+    <xs:restriction base="xs:long" />
+  </xs:simpleType>
+  <xs:simpleType name="groupName_ST">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="userID_ST">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="userName_ST">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="labServerID_ST">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="reservationID_ST">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="url_ST">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <!--Complex Types-->
+  <xs:complexType name="BasicPayloadCT" abstract="true">
+    <xs:attribute name="ticketType" type="xs:string" use="required" />
+  </xs:complexType>
+  <xs:complexType name="AuthPayloadCT" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Base type of authentication payloads</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BasicPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AuthenticateSBPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Service Broker Identification Ticket  Payload</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="AuthPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AuthenticateAgentPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Authenticate Agent Ticket Payload</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="AuthPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ServiceBrokerPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Service Broker Ticket</xs:documentation>
+    </xs:annotation>
+  </xs:complexType>
+  <xs:complexType name="SessionRedemptionPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Session Redemption Ticket</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ServiceBrokerPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AuthenticateSBPayload" type="AuthenticateSBPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Authenticate SB </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="AuthenticateAgentPayload" type="AuthenticateAgentPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Agent Authetication</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="SessionRedemptionPayload">
+    <xs:annotation>
+      <xs:documentation>Client Session Redemption on Service Broker</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ESSPayloadCT" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Basic type for ESS ticket payloads</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BasicPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AdministerESSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Superuser ESS authentication</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ESSPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdministerESSPayload" type="ESSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Superuser ESS atuthentication</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AdministerExperimentPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Experiment Administration ticket (create, delete, close)</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="ESSPayloadCT">
+        <xs:sequence>
+          <xs:element name="experimentID" type="experimentID_ST" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdministerExperimentPayload" type="AdministerExperimentPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Experiment Administration ticket (create, delete, close)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="StoreRecordsPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Store experiment records</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="blob" type="xs:boolean" />
+      <xs:element name="ExperimentID" type="experimentID_ST" />
+      <xs:element name="essURL" type="url_ST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StoreRecordsPayload" type="StoreRecordsPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Store experiment records</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RetrieveRecordsPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Retrieve experiment records</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ExperimentID" type="experimentID_ST" />
+      <xs:element name="essURL" type="url_ST" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RetrieveRecordsPayload" type="RetrieveRecordsPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Retrieve experiment records</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--USS Payloads-->
+  <xs:complexType name="USSPayloadCT" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Basic type for USS ticket payloads</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BasicPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AdministerUSSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT">
+        <xs:sequence>
+          <xs:element name="userTZ" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdministerUSSPayload">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ManageUSSGroupPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT">
+        <xs:sequence>
+          <xs:element name="groupName" type="groupName_ST" />
+          <xs:element name="sbGuid" type="guidST" />
+          <xs:element name="userTZ" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ManageUSSGroupPayload" type="ManageUSSGroupPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ScheduleSessionPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Schedule Session authetication</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT">
+        <xs:sequence>
+          <xs:element name="userName" type="userName_ST" />
+          <xs:element name="groupName" type="groupName_ST" />
+          <xs:element name="sbGuid" type="guidST" />
+          <xs:element name="labServer" type="xs:string" />
+          <xs:element name="labClientName" type="xs:string" />
+          <xs:element name="labClientVersion" type="xs:string" />
+          <xs:element name="userTZ" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ScheduleSessionPayload" type="ScheduleSessionPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Schedule Session authetication</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RevokeReservationPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Revoke USS reservation</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RevokeReservationPayload" type="RevokeReservationPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Revoke USS reservation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AllowExperimentExecutionPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT">
+        <xs:sequence>
+          <xs:element name="startExecution" type="xs:dateTime" />
+          <xs:element name="duration" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>in seconds</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="groupName" type="groupName_ST" />
+          <xs:element name="sbGuid" type="guidST" />
+          <xs:element name="userTZ" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AllowExperimentExecutionPayload" type="AllowExperimentExecutionPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--LSS Payloads-->
+  <xs:complexType name="LSSPayloadCT" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Basic type for USS ticket payloads</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BasicPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AdministerLSSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="LSSPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdministerLSSPayload" type="AdministerLSSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ManageLabPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT">
+        <xs:sequence>
+          <xs:element name="labServerID" type="labServerID_ST" />
+          <xs:element name="sbGuid" type="xs:int" />
+          <xs:element name="userTZ" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ManageLab" type="ManageLabPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RequestReservationPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RequestReservationPayload" type="RequestReservationPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RegisterLSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="USSPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RegisterLSPayload" type="RegisterLSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>Manage USS user group </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <!--LS Payloads-->
+  <xs:complexType name="LSPayloadCT" abstract="true">
+    <xs:annotation>
+      <xs:documentation>Basic type for USS ticket payloads</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BasicPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AdministerLSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="LSPayloadCT" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AdministerLSPayload" type="AdministerLSPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ExecuteExperimentPayloadCT">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="LSPayloadCT">
+        <xs:sequence>
+          <xs:element name="essWedAddress" type="url_ST" minOccurs="0" />
+          <xs:element name="startExecution" type="xs:dateTime" />
+          <xs:element name="duration" type="xs:long">
+            <xs:annotation>
+              <xs:documentation>in seconds</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="groupName" type="groupName_ST" />
+          <xs:element name="sbGuid" type="guidST" />
+          <xs:element name="experimentID" type="experimentID_ST" />
+          <xs:element name="userTZ" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ExecuteExperimentPayload">
+    <xs:annotation>
+      <xs:documentation>USS superuser authetication</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="ExecuteExperimentPayloadCT" />
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

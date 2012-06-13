@@ -1,0 +1,172 @@
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: #D1CBD1; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#outermain {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: white; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; WIDTH: 100%; PADDING-TOP: 0px
+}
+#innermain {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: white; PADDING-BOTTOM: 0px; MARGIN: 30px 30px 0px; PADDING-TOP: 0px
+}
+#indentedmain {
+	MARGIN-LEFT: 240px
+}
+#header {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: #000000; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#footer {
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 10px; BACKGROUND: #cc9933; FLOAT: left; PADDING-BOTTOM: 5px; WIDTH: 100%; PADDING-TOP: 5px
+}
+#header IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; RIGHT: 10px; LEFT: 10px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px; TOP: 10px
+}
+#header H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 36px; PADDING-BOTTOM: 5px; MARGIN: 0px; COLOR: #cc9933; PADDING-TOP: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#footer IMG {
+	BORDER-RIGHT: 0px; BORDER-TOP: 0px; MARGIN: 0px 0px 3px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+#footer IMG A {
+	BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+}
+#footer P {
+	MARGIN: 3px 0px 0px; FONT: 11px Arial, Helvetica, sans-serif; COLOR: #000; TEXT-ALIGN: left
+}
+#mainnav TABLE {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; WIDTH: 100%; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; TEXT-ALIGN: center
+}
+#mainnav TABLE TR {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#mainnav TABLE TD {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; BACKGROUND: #00695D; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; TEXT-ALIGN: center
+}
+#mainnav TABLE TD A {
+	BORDER-RIGHT: medium none; PADDING-RIGHT: 32px; DISPLAY: block; PADDING-LEFT: 32px; PADDING-BOTTOM: 5px; MARGIN: 0px; FONT: bold 15px Arial, verdana, sans-serif; COLOR: #cc9933; PADDING-TOP: 5px; TEXT-DECORATION: none
+}
+#mainnav TABLE TD A:hover {
+	COLOR: #fff
+}
+#mainnav TABLE TD#active A {
+	BACKGROUND: white; COLOR: #000
+}
+#leftnav {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BACKGROUND: white; FLOAT: left; PADDING-BOTTOM: 20px; MARGIN: 0px; PADDING-TOP: 5px
+}
+#leftnav TABLE {
+	BORDER-RIGHT: #cc9900 2px solid; BORDER-TOP: #cc9900 2px solid; MARGIN: 0px 40px 0px 0px; BORDER-LEFT: #cc9900 2px solid; BORDER-BOTTOM: #cc9900 2px solid
+}
+#leftnav TABLE TD {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 5px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 0px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px; TEXT-ALIGN: left
+}
+#leftnav TABLE TD.mudras {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 8px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 8px; BORDER-BOTTOM: 0px; TEXT-ALIGN: left
+}
+#leftnav TABLE TD.danceStyles {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 5px; BORDER-TOP: 0px; PADDING-LEFT: 5px; FLOAT: left; PADDING-BOTTOM: 5px; MARGIN: 0px; BORDER-LEFT: 0px; PADDING-TOP: 5px; BORDER-BOTTOM: 0px; TEXT-ALIGN: left
+}
+#leftnav TABLE TD A {
+	PADDING-RIGHT: 15px; DISPLAY: block; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; FONT: bold 15px Arial, verdana, sans-serif; COLOR: black; PADDING-TOP: 15px; TEXT-DECORATION: none
+}
+#leftnav TABLE TD A:hover {
+	TEXT-DECORATION: underline
+}
+#leftnav TABLE TD#active A {
+	COLOR: #cc9900; TEXT-DECORATION: none
+}
+#pagetitle {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px 0px 10px; PADDING-TOP: 0px; BORDER-BOTTOM: #999 2px groove
+}
+#pagetitle H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 20px; PADDING-BOTTOM: 10px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#pagetitle H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 17px; PADDING-BOTTOM: 10px; MARGIN: -8px 0px 0px; PADDING-TOP: 0px
+}
+#pagecontent {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+#pagecontent H1 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 24px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 10px; COLOR: #660000; PADDING-TOP: 10px
+}
+#pagecontent H2 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 17px; PADDING-BOTTOM: 10px; MARGIN: 0px; PADDING-TOP: 5px
+}
+#pagecontent H3 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 15px; PADDING-BOTTOM: 10px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#pagecontent H4 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+#pagecontent P {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; PADDING-BOTTOM: 5px; MARGIN: 0px; PADDING-TOP: 5px
+}
+#pagecontent P.repeating {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 20px; MARGIN: 0px 0px 10px; PADDING-TOP: 5px; BORDER-BOTTOM: #999 1px dotted
+}
+#pagecontent p.input.label {
+	font-size: 12px;
+	font-weight: bold;
+	}
+#pagecontent TABLE.contacts {
+	BACKGROUND: #660000; COLOR: white; TEXT-ALIGN: center
+}
+#pagecontent TABLE.natyanjali {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; MARGIN-BOTTOM: 5px; FONT-FAMILY: arial, helvetica
+}
+#pagecontent TABLE.pictureGallery {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; BACKGROUND: #660000; MARGIN-BOTTOM: 5px; COLOR: white; FONT-FAMILY: arial, helvetica
+}
+#picture {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; BACKGROUND: #660000; PADDING-BOTTOM: 5px; MARGIN: 0px 0px 10px; PADDING-TOP: 5px
+}
+#picture IMG {
+	BORDER-RIGHT: 0px; PADDING-RIGHT: 0px; BORDER-TOP: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; BORDER-LEFT: 0px; PADDING-TOP: 0px; BORDER-BOTTOM: 0px
+}
+#picture P {
+	MARGIN: 0px; COLOR: #ffffff; FONT-FAMILY: arial, helvetica, sans-serif
+}
+#picture P.byline {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 11px; PADDING-BOTTOM: 0px; PADDING-TOP: 10px
+}
+#picture P.courtesy {
+	FONT-SIZE: 9px; TEXT-ALIGN: right
+}
+A {
+	COLOR: #660000; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #666; TEXT-DECORATION: underline
+}
+OL {
+	MARGIN: 0px 0px 5px 30px
+}
+UL {
+	MARGIN: 10px 0px; LIST-STYLE-TYPE: disc
+}
+LI {
+	FONT-SIZE: 12px; MARGIN: 0px 0px 5px 10px
+}
+I {
+	FONT-SIZE: 13px; FONT-FAMILY: Times
+}
+.Label   
+       { 
+           font: 10pt verdana; 
+           font-weight: bold;
+           color: Black;
+           width: 150px;
+       }
+       .button 
+{
+	background-color: #FC6;
+	color: #000;
+	border-bottom: 1px solid #666;
+	border-right: 1px solid #666;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	font-weight: bold;
+	font-size: 12px;
+	margin: 3px 0 3px 3px;
+}
+
+

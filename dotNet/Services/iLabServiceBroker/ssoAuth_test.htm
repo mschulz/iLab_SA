@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0056)~/ssoAuth_test.html -->
+<html><head>
+<title>Test Page for SSO Authentication</title>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252"/>
+<meta content="MSHTML 6.00.6000.16981" name=GENERATOR/>
+</head>
+<body>
+<h1>Test Page for SSO Authentication</h1>
+<p> This is a test page for the <code>ssoAuth.aspx</code> page which is a work-around for Single Sign-On Authentication. 
+This page should not be used as part of a public site, but is supplied as examples of how to use the work-around Single Sign-On page (ssoAuth.aspx) and for testing.</p>
+<p><b>ssoAuth.aspx must never be called directly, but should called be as an argument on URL's that point to the site's default page.</b><br />The Service Broker forms authorization redirect handler has been modified to use ssoAuth if the sso=t argument is set.</p>
+<p>The URLs in this document must be edited to reflect your machine, session state does not except mixtures of IP addresses, localhost & DNS names.</p>
+<p>Example URL:<br/>
+<code>href="http://your.machine.com/iLabServiceBroker/default.aspx?sso=t&amp;usr=USER_NAME&amp;key=USER_PASSWD&amp;cid=CLIENT_GUID&amp;grp=GROUP_NAME"</code></p>
+<p>Supported aguments:
+<ul>
+<li>usr - The username from the authentication authority.
+<li>auth - The Authentication Authority's GUID or other indicator TBD, currently is not used and must not be specified indicating that local authentication will be used.
+<li>key - A text key or shared secret used in authentication, currently the user's local password this should not be used except for testing.
+<li>grp - The text name of the ServiceBroker group.
+<li>cid - The GUID of the target client.
+</ul>
+</p>
+<p>Please note: This page is only for testing and should not be used within a production site as it requires that the login information is passed in the URL query.</p>
+<p>It is currently configured to use the groups and clients specified below. You will need to register these 
+users, groups and clients on your test machine. or you will have to replace the user names, passwords, 
+client guids and group names in this file to reflect your machine's population.</p>
+<UL>
+  <LI>Users<ul><LI>test pw: tstpw<LI>test2 pw: tst2pw<LI>test3 pw: tst3pw<LI>web pw: webpw</ul>
+  <LI>Groups:<ul>
+  <LI>Experiment_Group - Request & Admin
+  <LI>Test_Group - Admin
+  <LI>weblab_group - Group only
+  <LI>html_group - Request
+  </ul>
+  <LI>clients:<ul>
+  <LI>TimeOfDay guid: TOD-12345 
+  <LI>TOD2 guid: TOD2-67890 
+  <LI>weblab guid: WEBLAB-67890
+  <LI>html test guid: HTML-12345
+  </ul> 
+</UL>
+<ul><b>Group Membership</b>
+  <LI>Test is in Experiment_Group 
+  <LI>web is in weblab_group & newUserGroup
+  <LI>Test2 is in Experiment_Group, Test_Group 
+  <LI>Test3 is in Test_Group, Experiment_Group-admin 
+</ul>
+<ul><b>Group Clients</b>
+  <LI>Test_Group may run TOD only
+  <LI>Experiment_Group may run TOD, TOD2, Weblab and other labs
+</ul>
+
+<p><b>The follwing links test different combinations of arguments and possible outcomes.</b></p>
+<ul>
+<li>No information supplied: should ask user to login and follow normal paths:
+<ul>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t">Generic Link</A>
+</ul>
+
+<li>Only username information: should ask user to login and follow normal paths:
+<ul>
+<li> <A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test">Username: test - one group membership</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2">Username: test2 - member of 2 groups</A>
+</ul>
+<li>Username & key information: should auto login and follow normal paths
+<ul>
+<li> <A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test&amp;key=tstpw">Username: test - one group membership</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;key=tst2pw">Username: test2 - member of 2 groups</A>
+</ul>
+<li>User and client information: should ask user to login and if the client is found in only 1 group then select that group otherwise ask
+<ul>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test&amp;cid=TOD-12345">Username: Test and TOD - member of 1 group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;cid=TOD-12345">Username: Test2 and TOD - member of 2 groups</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test&amp;cid=TOD2-67890">Username: Test and TOD2 - member of 1 groups client not in users group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;cid=TOD2-67890">Username: Test2 and TOD2 - member of 2 groups</A>
+</ul>
+<li>User, key  and client information: if the client is found in only 1 group then select that group otherwise ask
+<ul>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test&amp;key=tstpw&amp;cid=TOD-12345">Username: Test and TOD - member of 1 group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;key=tst2pw&amp;cid=TOD-12345">Username: Test2 and TOD - member of 2 groups</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test&amp;key=tstpw&amp;cid=TOD2-67890">Username: Test and TOD2 - member of 1 groups client not in users group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;key=tst2pw&amp;cid=TOD2-67890">Username: Test2 and TOD2 - member of 2 groups</A>
+</ul>
+
+<li>User, group and client information
+<ul>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;cid=TOD-12345&amp;grp=Experiment_Group">Username: Test2, TOD, Experiment_Group - member of 2 groups</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;cid=TOD2-67890&amp;grp=Experiment_Group">Username: Test2, TOD2, Experiment_Group - member of 2 groups</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test&amp;cid=TOD2-67890&amp;grp=Test_Group">Username: Test,TOD2, Test_Group - member of other group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=web&amp;cid=WEBLAB-67890&amp;grp=weblab_group">Username: Web , WEBLAB weblab,Weblab_Group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=kirky&amp;cid=HTML-12345&amp;grp=html_group">Username; kirky, HTML, html_group</A>
+</ul><li>User, Key, group and client information
+<ul>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;key=tst2pw&amp;cid=TOD-12345&amp;grp=Experiment_Group">Username: Test2, TOD, Experiment_Group - member of 2 groups</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test2&amp;key=tst2pw&amp;cid=TOD2-67890&amp;grp=Experiment_Group">Username: Test2, TOD2, Experiment_Group - member of 2 groups</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=test&amp;key=tstpw&amp;cid=TOD2-67890&amp;grp=Test_Group">Username: Test,TOD2, Test_Group - member of other group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;usr=web&amp;key=webpw&amp;cid=WEBLAB-67890&amp;grp=weblab_group">Username: Web , WEBLAB weblab,Weblab_Group</A>
+</ul>
+
+<li>Group and client information
+<ul>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;cid=HTML-12345&amp;grp=html_group">client GUID html, grp html</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;cid=TOD-12345&amp;grp=Experiment_Group">client GUID #1, grp Exp </A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;cid=HTML-12345&amp;grp=web_group">client GUID html, grp web- client not in specified group</A>
+</ul>
+<li>Group only
+<ul>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;grp=Experiment_Group">Experiment_Group</A>
+<li><A href="http://localhost/iLabServiceBroker/default.aspx?sso=t&amp;grp=html_group">HTML_Group</A>
+</ul>
+</BODY></HTML>

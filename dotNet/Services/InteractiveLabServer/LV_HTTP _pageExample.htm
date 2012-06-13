@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Draft//EN">
+<HTML>
+<HEAD>
+<TITLE>HTTP Server</TITLE>
+</HEAD>
+<BODY >
+<H1>HTTP Server</H1>
+Text that is going to be displayed before the image of the VI Panel.<P>
+<TABLE BORDER = 1 BORDERCOLOR = #000000><TR><TD>
+<SCRIPT language="JavaScript"><!--
+var lng;
+if (navigator.userLanguage) { lng = navigator.userLanguage; };
+if (navigator.language) { lng = navigator.language.toLowerCase(); };
+
+var obj = '<OBJECT ID="LabVIEWControl" CLASSID="CLSID:A40B0AD4-B50E-4E58-8A1D-8544233807AC" WIDTH=450 HEIGHT=106 CODEBASE="ftp://ftp.ni.com/support/labview/runtime/windows/7.1';
+if (lng.indexOf("fr") != -1) { obj = obj + '/French'; }
+else if (lng.indexOf("de") != -1) { obj = obj + '/German'; }
+else if (lng.indexOf("ja") != -1) { obj = obj + '/Japanese'; }
+obj = obj + '/LVRunTimeEng.exe">';
+
+document.write(obj);
+// --></SCRIPT>
+<PARAM name="LVFPPVINAME" value="HTTP Server">
+<PARAM name="REQCTRL" value=false>
+<EMBED SRC=".LV_FrontPanelProtocol.rpvi71" LVFPPVINAME="HTTP Server" REQCTRL=false TYPE="application/x-labviewrpvi71" WIDTH=450 HEIGHT=106  PLUGINSPAGE="http://digital.ni.com/express.nsf/express?openagent&code=ex3e33&"></EMBED>
+</OBJECT>
+</TD></TR></TABLE>
+<P>
+Text that is going to be displayed after the image of the VI Panel.
+</BODY>
+</HTML>

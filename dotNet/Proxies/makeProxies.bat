@@ -1,0 +1,9 @@
+wsdl /v /sharetypes /f /n:iLabs.Proxies.BatchLS /o:.\BatchLSProxy\BatchLSProxy.cs http://localhost/ilab_WSDL/I_BLS.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.BatchSB /o:.\BatchSBProxy\BatchSBProxy.cs http://localhost/ilab_WSDL/I_BatchSB.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.ISB /o:.\InteractiveSBProxy\InteractiveSBProxy.cs http://localhost/ilab_WSDL/I_ServiceBroker.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.Ticketing /o:.\TicketIssuerProxy\TicketIssuerProxy.cs http://localhost/ilab_WSDL/I_TicketIssuer.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.PAgent /o:.\ProcessAgentProxy\ProcessAgentProxy.cs http://localhost/ilab_WSDL/I_ProcessAgent.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.ESS /o:.\ExperimentStorageProxy\ExperimentStorageProxy.cs http://localhost/ilab_WSDL/I_ESS.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.ILS /o:.\InteractiveLSProxy\InteractiveLSProxy.cs http://localhost/ilab_WSDL/I_ILS.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.LSS /o:.\LabSchedulingProxy\LabSchedulingProxy.cs http://localhost/ilab_WSDL/I_LSS.asmx?WSDL
+wsdl /v /sharetypes /f /n:iLabs.Proxies.USS /o:.\UserSchedulingProxy\UserSchedulingProxy.cs http://localhost/ilab_WSDL/I_USS.asmx?WSDL

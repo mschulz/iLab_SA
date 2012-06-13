@@ -1,0 +1,90 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{457B5797-FBF2-4AF5-89F9-F26F32FA8E7B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>iLabControls</RootNamespace>
+    <AssemblyName>iLabControls</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Recaptcha, Version=1.0.5.0, Culture=neutral, PublicKeyToken=9afc4d65b28c38c2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Recaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterSelf.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SchedulingControl.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Proxies\ProcessAgentProxy\ProcessAgentProxy.csproj">
+      <Project>{34C8F4C5-900D-4221-B833-94D01F7E93B7}</Project>
+      <Name>ProcessAgentProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTypes\iLabsDataTypes.csproj">
+      <Project>{ADDE40F3-E299-400B-A842-15ACD58BBF19}</Project>
+      <Name>iLabsDataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessAgentLibrary\ProcessAgentLibrary.csproj">
+      <Project>{1138C760-3D21-4592-BCF0-00C38449F4CC}</Project>
+      <Name>ProcessAgentLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceBrokerLibrary\ServiceBrokerLibrary.csproj">
+      <Project>{8C295C05-959B-483C-9F31-62E45FE46543}</Project>
+      <Name>ServiceBrokerLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilLibrary\UtilLibrary.csproj">
+      <Project>{01C9488D-E7DB-43FD-9C7F-CE3D0206C5B0}</Project>
+      <Name>UtilLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scheduling.css" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,99 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4E146A2-AFB8-400F-967A-C46AA626B603}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Labs.LabView.LV86</RootNamespace>
+    <AssemblyName>LabViewInterface86</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;LabVIEW_86</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\LabViewInterface86.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;LabVIEW_86</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Interop.CWDataServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Interop.CWDataServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.CWDSLib, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Interop.CWDSLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.LabVIEW_86, Version=5.5.8.6, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Interop.LabVIEW_86.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LabViewInterface.cs" />
+    <Compile Include="LabViewRemote.cs" />
+    <Compile Include="LabViewTask.cs" />
+    <Compile Include="LVDataSocket.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\ProcessAgentLibrary\ProcessAgentLibrary.csproj">
+      <Project>{1138C760-3D21-4592-BCF0-00C38449F4CC}</Project>
+      <Name>ProcessAgentLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\UtilLibrary\UtilLibrary.csproj">
+      <Project>{01C9488D-E7DB-43FD-9C7F-CE3D0206C5B0}</Project>
+      <Name>UtilLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\DataTypes\iLabsDataTypes.csproj">
+      <Project>{ADDE40F3-E299-400B-A842-15ACD58BBF19}</Project>
+      <Name>iLabsDataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\InteractiveLabServerLibrary\InteractiveLabServerLibrary.csproj">
+      <Project>{482C3D3E-9596-4AB0-BD61-E3E427995AC4}</Project>
+      <Name>InteractiveLabServerLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Proxies\ExperimentStorageProxy\ExperimentStorageProxy.csproj">
+      <Project>{B38F998B-CBC3-44F7-AD6F-92CAF022A65C}</Project>
+      <Name>ExperimentStorageProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Proxies\InteractiveSBProxy\InteractiveSBProxy.csproj">
+      <Project>{C90A23DC-8AED-40DD-B9B5-AC30C0871E18}</Project>
+      <Name>InteractiveSBProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Proxies\TicketIssuerProxy\TicketIssuerProxy.csproj">
+      <Project>{9A2772DF-71D6-44E1-BAA9-87669A9FA942}</Project>
+      <Name>TicketIssuerProxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

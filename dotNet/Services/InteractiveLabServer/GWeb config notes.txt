@@ -1,0 +1,43 @@
+Configuration of GServer notes:
+
+Current LabView Status:
+
+Running as pbailey
+Server running
+Share Port
+
+May see :81/index.htm
+May run test CGI's
+FrameTest does call CGI & execute
+
+{ From LabView.ini }
+WebServer.Port=81
+InternetToolkitInstalled=True
+ShowGWS=True
+LoadGWSAtStart=True
+WebServer.LogEnabled=True
+WebServer.Enabled=True
+
+
+=============================
+
+Open and run …AdvAppDevCourse/Examples/VI Server/Auto Dispose Reference/Simple_main_Loop.vi  Run this VI several times, making different selections for Demo Type.  Also run with Auto Dispose? turned off and on.  You need to keep the VI Hierarchy open to know when VIs remain in memory.  Reference the following guidelines as you run this example:
+
+Auto Dispose Ref = False (Caller retains control of the reference.)
+If the calling VI terminates, then the Dynamic VI is terminated and removed from memory.
+If the calling VI is running and references are kept in memory, you can control the Dynamic VIs by manipulating references.
+Closing references from the caller terminates the Dynamic VIs
+Dynamic VIs stay in memory when they end execution unless the reference is removed from memory (the caller is idle)
+
+Auto Dispose Ref = True (LabVIEW detaches the reference from the calling VI)
+When the Dynamic VI terminates, the reference is discarded automatically.
+If the calling VI terminates then Dynamic VIs continue to run.  In this case, references are lost from the caller and you cannot regain access (VI zombies.)
+If the calling VI is running and references are kept in memory, you can control Dynamic VIs by manipulating references.
+Closing references from active caller terminates the Dynamic VIs
+Dynamic VIs are removed from memory when they end execution, regardles of the caller’s state
+
+Auto Dispose Ref:  Caveats 
+When a Dynamic VI opens a reference to itself, the Dynamic VI is responsible for the new (duplicate) reference. (Demo Type = VI opens own reference)
+As long as the front panel is open, LabVIEW keeps the dynamic VI in memory.  This is independent of the state of the VI reference from the caller. (Demo Type = VI opens front panel)
+Caller passes the Dynamic VI reference to the Dynamic VI or an active global;  references are kept in memory.
+

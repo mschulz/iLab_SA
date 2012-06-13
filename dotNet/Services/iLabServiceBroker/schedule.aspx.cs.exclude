@@ -1,0 +1,59 @@
+using System;
+using System.Collections;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Web;
+using System.Text;
+using System.Web.SessionState;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
+using System.Web.Security;
+using System.Web.Mail;
+using System.Configuration;
+using iLabs.Architecture;
+using iLabs.Architecture.InternalAPI;
+using iLabs.Architecture.AdministrativeAPI;
+using iLabs.Architecture.AuthorizationAPI;
+using iLabs.ServiceBrokerAPI;
+
+using iLabs.DataTypes.TicketingDataTypes;
+using iLabs.TicketingAPI;
+using iLabs.TicketIssuerAPI;
+
+namespace iLabs.ServiceBroker
+{
+
+    public partial class schedule : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void btnSchedule_Click(object sender, EventArgs e)
+        {
+            string username = Session["UserName"].ToString();
+            string groupName = Session["GroupName"].ToString();
+
+            //currently hard-coded
+            string todClientGuid = "TOD_Client_Guid";
+            string labClientName = "Interactive Time of Day client";
+            string labClientVersion = "1.0";
+
+            TicketIssuerDB issuer = new TicketIssuerDB();
+            ProcessAgent[] ussProcessAgents = issuer.GetProcessAgentsByType(ProcessAgentTypes.SCHEDULING_SERVER);
+            ProcessAgent[] lssProcessAgents = issuer.GetProcessAgentsByType(ProcessAgentTypes.LAB_SCHEDULING_SERVER);
+
+            //the uss is the redeemer of the scheduling ticket
+            ProcessAgent uss = ussProcessAgents[0];
+            ProcessAgent lss = lssProcessAgents[0];
+
+            long duration = 36000;
+
+            RecipeExecutor recipeExec = RecipeExecutor.Instance();
+            string schedulingUrl = recipeExec.ExecuteExerimentSchedulingRecipe(uss.agentGuid, lss.agentGuid, username, groupName, ProcessAgentDB.ServiceGuid, todClientGuid, labClientName, labClientVersion, Convert.ToInt32(Session["UserTZ"]));
+            Response.Redirect(schedulingUrl, false);
+        }
+    }
+}

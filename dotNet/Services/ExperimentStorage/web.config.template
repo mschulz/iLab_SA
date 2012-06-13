@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!-- 
+    Note: As an alternative to hand editing this file you can use the 
+    web admin tool to configure settings for your application. Use
+    the Website->Asp.Net Configuration option in Visual Studio.
+    A full list of settings and comments can be found in 
+    machine.config.comments usually located in 
+    \Windows\Microsoft.Net\Framework\v2.x\Config 
+-->
+<configuration>
+  <configSections>
+  </configSections>
+  <appSettings>
+    <!--  Experiment Storage Service Web.Config -->
+    
+    <!-- ProcessAgent required Keys -->
+
+    <add key="sqlConnection" value="data source=(local);initial catalog=iLab_ESS;Integrated Security=SSPI"/>
+    <add key="databaseProvider" value="System.Data.SqlClient"/>
+
+    <!-- NOTE Default Recaptcha: Global keys assigned to ilab.mit.edu 
+	You should generate Keys for your Institution or site specific keys
+	see documentation at http://www.google.com/recaptcha
+    -->
+    <add key="RecaptchaPublicKey" value="6LcLF8ISAAAAAMhwOM1ipf9N1Kh_obO1VG0PwCQB"/>
+    <add key="RecaptchaPrivateKey" value="6LcLF8ISAAAAALHhc_wOQibhl3jIc5gf9MUKvOw_"/>
+    
+    <!-- Defaults for self registration -->
+    <add key="serviceName" value="Experiment Storage Server"/>
+    <add key="serviceURL" value="~/ExperimentStorage.asmx"/>
+    <add key="defaultPasskey" value="ESS"/>
+
+    <add key="bugReportMailAddress" value="ilab-bug@mit.edu" />
+    <add key="supportMailAddress" value="ilab-bug@mit.edu"/>
+    
+    <!-- Optional path and filename for application log. The directory must exisit & be writeable to the IIS worker process -->
+    <add key="logPath" value=""/>
+
+    <!-- ESS Specific Keys -->
+    <add key="blobImportProtocols" value="http"/>
+    <add key="blobExportProtocols" value="http"/>
+    <add key="checksumAlgorithms" value="crc32,md5"/>
+    
+ 
+  </appSettings>
+  <system.diagnostics>
+    <switches>
+      <add name="defaultTrace" value="Off" />
+    </switches>
+  </system.diagnostics>
+  <connectionStrings/>
+  <system.web>
+    <!-- 
+            Set compilation debug="true" to insert debugging 
+            symbols into the compiled page. Because this 
+            affects performance, set this value to true only 
+            during development.
+        -->
+    <compilation debug="true">
+      <assemblies>
+        <add assembly="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089"/>
+      </assemblies>
+    </compilation>
+    <!--
+            The <authentication> section enables configuration 
+            of the security authentication mode used by 
+            ASP.NET to identify an incoming user. 
+        -->
+    <authentication mode="Windows"/>
+    <!--
+            The <customErrors> section enables configuration 
+            of what to do if/when an unhandled error occurs 
+            during the execution of a request. Specifically, 
+            it enables developers to configure html error pages 
+            to be displayed in place of a error stack trace.
+
+        <customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+        -->
+    <!--<webServices>
+			<soapExtensionImporterTypes>
+			</soapExtensionImporterTypes>
+		</webServices>-->
+  </system.web>
+</configuration>

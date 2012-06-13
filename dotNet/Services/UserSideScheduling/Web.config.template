@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<configuration>
+<appSettings>
+    <!--
+    LabSideScheduling Web.Config -->
+  
+    <!--
+    ProcessAgent required Keys -->
+    <!-- THE FOLLOWING MUST BE SET FOR ALL SERVICES, used to define the service -->
+    <!-- The following  keys specify the WebService required Values -->
+    <!-- They are used by the SelfRegistration page to generate the ProcessAgent's
+         Bootstrap ProcessAgent Record, which must be created before installing domain credientials -->
+  
+  <!-- the database connection information 
+    NOTE: You Must set the database catalog to the database name that you created as part of the installation process -->
+  <add key="sqlConnection" value="data source=(local);initial catalog=iLab_USS;Integrated Security=SSPI"/>
+  <add key="DatabaseProvider" value="System.Data.SqlClient" />
+
+    <!-- NOTE Default Recaptcha: Global keys assigned to ilab.mit.edu 
+	You should generate Keys for your Institution or site specific keys
+	see documentation at http://www.google.com/recaptcha
+    -->
+    <add key="RecaptchaPublicKey" value="6LcLF8ISAAAAAMhwOM1ipf9N1Kh_obO1VG0PwCQB"/>
+    <add key="RecaptchaPrivateKey" value="6LcLF8ISAAAAALHhc_wOQibhl3jIc5gf9MUKvOw_"/>
+  
+   
+    <!-- The name of the Service displayed for the user, please change -->
+    <add key="serviceName" value="Default UserScheduling Server"/>
+    
+    <add key="serviceURL" value="~/UserScheduling.asmx"/>
+    <add key="defaultPasskey" value="USS"/>
+  
+  <!-- email address where various reports are sent -->
+  <add key="genericFromMailAddress" value="ilab-bug@mit.edu"/>
+  <!--this for the centralized bug tracking system at MIT. 
+	      Append a local mail address if you want to also recieve bug reports ( comma delimited ) -->
+  <add key="bugReportMailAddress" value="ilab-bug@mit.edu"/>
+
+  <!-- CHANGE THIS TO LOCAL ADDRESS: email address where help requests are sent -->
+  <add key="supportMailAddress" value="ilab-bug@mit.edu"/>
+
+  <!-- Optional path and filename for application log. The directory must exisit & be writeable to the IIS worker process -->
+  <add key="logPath" value=""/>
+
+     <!-- USS Specific Keys  ussGuid & ussName should be replaced with standard keys -->
+    <add key="allowExecutionTicketDefaultDuration" value="7200"/>
+    <add key ="ussName" value="User Side Scheduling Server"/>
+
+  
+  </appSettings>
+  <system.diagnostics>
+    <switches>
+      <add name="defaultTrace" value="Off" />
+    </switches>
+  </system.diagnostics>
+  <system.web>
+    <!--  DYNAMIC DEBUG COMPILATION
+          Set compilation debug="true" to enable ASPX debugging.  Otherwise, setting this value to
+          false will improve runtime performance of this application. 
+          Set compilation debug="true" to insert debugging symbols (.pdb information)
+          into the compiled page. Because this creates a larger file that executes
+          more slowly, you should set this value to true only when debugging and to
+          false at all other times. For more information, refer to the documentation about
+          debugging ASP.NET files.
+    -->
+    <compilation defaultLanguage="c#" debug="true">
+      <compilers>
+        <compiler language="c#" type="Microsoft.CSharp.CSharpCodeProvider, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" extension=".cs" compilerOptions="/d:DEBUG;TRACE"/>
+      </compilers>
+    </compilation>
+    <!--  CUSTOM ERROR MESSAGES
+          Set customErrors mode="On" or "RemoteOnly" to enable custom error messages, "Off" to disable. 
+          Add <error> tags for each of the errors you want to handle.
+
+          "On" Always display custom (friendly) messages.
+          "Off" Always display detailed ASP.NET error information.
+          "RemoteOnly" Display custom (friendly) messages only to users not running 
+           on the local Web server. This setting is recommended for security purposes, so 
+           that you do not display application detail information to remote clients.
+    -->
+    <customErrors mode="RemoteOnly"/>
+    <!--  AUTHENTICATION 
+          This section sets the authentication policies of the application. Possible modes are "Windows", 
+          "Forms", "Passport" and "None"
+
+          "None" No authentication is performed. 
+          "Windows" IIS performs authentication (Basic, Digest, or Integrated Windows) according to 
+           its settings for the application. Anonymous access must be disabled in IIS. 
+          "Forms" You provide a custom form (Web page) for users to enter their credentials, and then 
+           you authenticate them in your application. A user credential token is stored in a cookie.
+          "Passport" Authentication is performed via a centralized authentication service provided
+           by Microsoft that offers a single logon and core profile services for member sites.
+    -->
+    <authentication mode="Windows"/>
+    <!--  AUTHORIZATION 
+          This section sets the authorization policies of the application. You can allow or deny access
+          to application resources by user or role. Wildcards: "*" mean everyone, "?" means anonymous 
+          (unauthenticated) users.
+    -->
+    <authorization>
+      <allow users="*"/>
+      <!-- Allow all users -->
+      <!--  <allow     users="[comma separated list of users]"
+                             roles="[comma separated list of roles]"/>
+                  <deny      users="[comma separated list of users]"
+                             roles="[comma separated list of roles]"/>
+            -->
+    </authorization>
+    <!--  APPLICATION-LEVEL TRACE LOGGING
+          Application-level tracing enables trace log output for every page within an application. 
+          Set trace enabled="true" to enable application trace logging.  If pageOutput="true", the
+          trace information will be displayed at the bottom of each page.  Otherwise, you can view the 
+          application trace log by browsing the "trace.axd" page from your web application
+          root. 
+    -->
+    <trace enabled="false" requestLimit="10" pageOutput="false" traceMode="SortByTime" localOnly="true"/>
+    <!--  SESSION STATE SETTINGS
+          By default ASP.NET uses cookies to identify which requests belong to a particular session. 
+          If cookies are not available, a session can be tracked by adding a session identifier to the URL. 
+          To disable cookies, set sessionState cookieless="true".
+    -->
+    <sessionState mode="InProc" stateConnectionString="tcpip=127.0.0.1:42424" sqlConnectionString="data source=127.0.0.1;Trusted_Connection=yes" cookieless="false" timeout="20"/>
+    <!--  GLOBALIZATION
+          This section sets the globalization settings of the application. 
+    -->
+    <globalization requestEncoding="utf-8" responseEncoding="utf-8"/>
+    <xhtmlConformance mode="Legacy"/>
+  </system.web>
+  
+</configuration>

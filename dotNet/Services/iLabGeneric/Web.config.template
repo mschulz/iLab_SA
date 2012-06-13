@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!-- 
+    Note: As an alternative to hand editing this file you can use the 
+    web admin tool to configure settings for your application. Use
+    the Website->Asp.Net Configuration option in Visual Studio.
+    A full list of settings and comments can be found in 
+    machine.config.comments usually located in 
+    \Windows\Microsoft.Net\Framework\v2.x\Config 
+-->
+<configuration>
+  <appSettings>
+     <!--
+     Interactive TimeOfDay Web.Config -->
+
+    <!-- 
+    ProcessAgent required Keys -->
+    <!-- THE FOLLOWING MUST BE SET FOR ALL SERVICES, used to define the service -->
+    <!-- The following  keys specify the WebService required Values -->
+    
+    <!-- the database connection information 
+    NOTE: You Must set the database catalog to the database name that you created as part of the instalation process -->
+    <add key="sqlConnection" value="data source=(local);initial catalog=iLab_GPA;Integrated Security=SSPI"/>
+    <add key="DatabaseProvider" value="System.Data.SqlClient" />
+
+    <!-- NOTE Default Recaptcha: Global keys assigned to ilab.mit.edu 
+	You should generate Keys for your Institution or site specific keys
+	see documentation at http://www.google.com/recaptcha
+    -->
+    <add key="RecaptchaPublicKey" value="6LcLF8ISAAAAAMhwOM1ipf9N1Kh_obO1VG0PwCQB"/>
+    <add key="RecaptchaPrivateKey" value="6LcLF8ISAAAAALHhc_wOQibhl3jIc5gf9MUKvOw_"/>
+    
+    <!-- The following optional keys are used by the SelfRegistration page to populate the selfRegistration page
+ 	which is used to generate the ProcessAgent's Bootstrap ProcessAgent Record, 
+	which must be created before installing domain credientials -->
+    
+    <!-- The name of the Service displayed for the user, please change -->
+    <add key="serviceName" value="iLab Generic"/>
+    
+    <add key="serviceURL" value="~/iLabGeneric.asmx"/>
+    <add key="defaultPasskey" value="GPA"/>
+    <add key="bugReportMailAddress" value="ilab-bug@mit.edu" />
+    <add key="supportMailAddress" value="ilab-bug@mit.edu"/>
+
+    <!-- Optional path and filename for application log. The directory must exisit & be writeable to the IIS worker process -->
+    <add key="logPath" value=""/>
+    
+  </appSettings>
+  <system.diagnostics>
+    <switches>
+      <add name="defaultTrace" value="Off" />
+    </switches>
+  </system.diagnostics>
+  <connectionStrings/>
+  <system.web>
+    <!-- 
+            Set compilation debug="true" to insert debugging 
+            symbols into the compiled page. Because this 
+            affects performance, set this value to true only 
+            during development.
+        -->
+    <compilation debug="true">
+      <assemblies>
+      </assemblies>
+    </compilation>
+    <!--
+            The <authentication> section enables configuration 
+            of the security authentication mode used by 
+            ASP.NET to identify an incoming user. 
+        -->
+    <authentication mode="Windows"/>
+    <!--
+            The <customErrors> section enables configuration 
+            of what to do if/when an unhandled error occurs 
+            during the execution of a request. Specifically, 
+            it enables developers to configure html error pages 
+            to be displayed in place of a error stack trace.
+
+        <customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+        -->
+  </system.web>
+</configuration>

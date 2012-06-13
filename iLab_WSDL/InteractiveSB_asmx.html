@@ -1,0 +1,276 @@
+
+
+<html>
+
+    <head><link rel="alternate" type="text/xml" href="/InteractiveSB/InteractiveSB.asmx?disco" />
+
+    <style type="text/css">
+    
+		BODY { color: #000000; background-color: white; font-family: Verdana; margin-left: 0px; margin-top: 0px; }
+		#content { margin-left: 30px; font-size: .70em; padding-bottom: 2em; }
+		A:link { color: #336699; font-weight: bold; text-decoration: underline; }
+		A:visited { color: #6699cc; font-weight: bold; text-decoration: underline; }
+		A:active { color: #336699; font-weight: bold; text-decoration: underline; }
+		A:hover { color: cc3300; font-weight: bold; text-decoration: underline; }
+		P { color: #000000; margin-top: 0px; margin-bottom: 12px; font-family: Verdana; }
+		pre { background-color: #e5e5cc; padding: 5px; font-family: Courier New; font-size: x-small; margin-top: -5px; border: 1px #f0f0e0 solid; }
+		td { color: #000000; font-family: Verdana; font-size: .7em; }
+		h2 { font-size: 1.5em; font-weight: bold; margin-top: 25px; margin-bottom: 10px; border-top: 1px solid #003366; margin-left: -15px; color: #003366; }
+		h3 { font-size: 1.1em; color: #000000; margin-left: -15px; margin-top: 10px; margin-bottom: 10px; }
+		ul { margin-top: 10px; margin-left: 20px; }
+		ol { margin-top: 10px; margin-left: 20px; }
+		li { margin-top: 10px; color: #000000; }
+		font.value { color: darkblue; font: bold; }
+		font.key { color: darkgreen; font: bold; }
+		font.error { color: darkred; font: bold; }
+		.heading1 { color: #ffffff; font-family: Tahoma; font-size: 26px; font-weight: normal; background-color: #003366; margin-top: 0px; margin-bottom: 0px; margin-left: -30px; padding-top: 10px; padding-bottom: 3px; padding-left: 15px; width: 105%; }
+		.button { background-color: #dcdcdc; font-family: Verdana; font-size: 1em; border-top: #cccccc 1px solid; border-bottom: #666666 1px solid; border-left: #cccccc 1px solid; border-right: #666666 1px solid; }
+		.frmheader { color: #000000; background: #dcdcdc; font-family: Verdana; font-size: .7em; font-weight: normal; border-bottom: 1px solid #dcdcdc; padding-top: 2px; padding-bottom: 2px; }
+		.frmtext { font-family: Verdana; font-size: .7em; margin-top: 8px; margin-bottom: 0px; margin-left: 32px; }
+		.frmInput { font-family: Verdana; font-size: 1em; }
+		.intro { margin-left: -15px; }
+           
+    </style>
+
+    <title>
+	InteractiveServiceBroker Web Service
+</title></head>
+
+  <body>
+
+    <div id="content">
+
+      <p class="heading1">InteractiveServiceBroker</p><br>
+
+      
+
+      <span>
+
+          <p class="intro">The following operations are supported.  For a formal definition, please review the <a href="InteractiveSB.asmx?WSDL">Service Description</a>. </p>
+          
+          <p> WebService(Name = "InteractiveServiceBroker"<br/>Namespace = "http://ilab.mit.edu/iLabs/Services"</p>
+<p>Header Namespace = "http://ilab.mit.edu/iLabs/type"<br/>Data Namespace = "http://ilab.mit.edu/iLabs/type"</p>
+<ul><h2><b><i>ProcessAgent</i></b></h2>
+
+<li><b>agentAuthHeader<br/>bool
+                <a href="InteractiveSB.asmx?op=CancelTicket">CancelTicket</a>(Coupon coupon, string type, string redeemer)</b>
+                
+                <span>
+                  <br>CancelTicket -- Try to cancel a cached ticket, should return true if cancelled or not found. The serviceBroker version - If not the redeemer the call needs to be repackaged and forwarded to the redeemer.
+                </span>
+              </li>
+              <p>
+ <li>No Header<br/>
+                <b>DateTime <a href="InteractiveSB.asmx?op=GetServiceTime">GetServiceTime</a>()</b>
+                
+                
+              </li>
+              <p>
+            
+              <li>No Header<br/>
+                <b>StatusReport <a href="InteractiveSB.asmx?op=GetStatus">GetStatus</a>()</b>
+                
+                
+              </li>
+              <p>
+            
+              <li>
+                <b>initAuthHeader<br/>
+		ProcessAgent <a href="InteractiveSB.asmx?op=InstallDomainCredentials">InstallDomainCredentials</a>(ProcessAgent service,
+            Coupon inIdentCoupon, Coupon outIdentCoupon)</b>
+                
+                
+              </li>
+              <p>
+<li><b>agentAuthHeader<br/>
+                void <a href="InteractiveSB.asmx?op=Register">Register</a>(string registerId, ServiceDescription[] info)</b>
+                
+                <span>
+                  <br>Register
+                </span>
+              </li>
+              <p>
+<li><b>agentAuthHeader<br/>
+                void <a href="InteractiveSB.asmx?op=StatusNotification">StatusNotification</a>(StatusNotificationReport report)</b>
+                
+                
+              </li>
+              <p>
+</ul>
+<ul><h2><b><i>TicketIssuer</i></b></h2>
+<li><b>agentAuthHeader<br/>
+                Ticket <a href="InteractiveSB.asmx?op=AddTicket">AddTicket</a>(Coupon coupon, string type, string redeemerGuid,
+            long duration, string payload)</b>
+                
+                
+              </li>
+              <p>
+ <li><b>agentAuthHeader<br/>
+                Coupon <a href="InteractiveSB.asmx?op=CreateTicket">CreateTicket</a>(string type, string redeemerGuid,
+            long duration, string payload)</b>
+                
+                
+              </li>
+              <p>
+              <li><b>agentAuthHeader<br/>
+                Ticket <a href="InteractiveSB.asmx?op=RedeemTicket">RedeemTicket</a>(Coupon coupon, string type, string redeemerGuid)</b>
+                
+                
+              </li>
+              <p>
+<li><b>agentAuthHeader<br/>
+                bool <a href="InteractiveSB.asmx?op=RequestTicketCancellation">RequestTicketCancellation</a>(Coupon coupon,
+            string type, string redeemerGuid)</b>
+                
+                
+              </li>
+              <p>
+</ul>
+<ul><h2><b><i>Client</i></b></h2>
+ <li><b>opHeader<br/>
+                void <a href="InteractiveSB.asmx?op=DeleteClientData">DeleteClientData</a>(string name)</b>
+                
+                <span>
+                  <br>Removes an client item from the user's opaque data store
+                </span>
+              </li>
+              <p>
+<li><b>ophHeader<br/>
+                public string[] <a href="InteractiveSB.asmx?op=ListAllClientDataItems">ListAllClientDataItems</a>()</b>
+                
+                <span>
+                  <br>Enumerates the names of all client items in the user's opaque data store
+                </span>
+              </li>
+              <p>
+            
+              <li><b>opHeader<br/>
+                string <a href="InteractiveSB.asmx?op=LoadClientData">LoadClientData</a>(string name)</b>
+                
+                <span>
+                  <br>Returns the value of an client item in the user's opaque data store
+                </span>
+              </li>
+              <p>
+ <li><b>opHeader<br/>
+                void <a href="InteractiveSB.asmx?op=SaveClientData">SaveClientData</a>(string name, string itemValue)</b>
+                
+                <span>
+                  <br>Sets a client item value in the user's opaque data store
+                </span>
+              </li>
+              <p>
+</ul>
+              <ul><h2><b><i>Experiment</i></b></h2>
+<li><b>agentAuthHeader<br/>
+                StorageStatus <a href="InteractiveSB.asmx?op=AgentCloseExperiment">AgentCloseExperiment</a>(Coupon coupon, long experimentId)</b>
+                
+                <span>
+                  <br>Closes an Experiment on the ServiceBroker, if the SB is not the issuer of the coupon the call is forwarded to the issuer. If an ESS is associated with this experiment the ESS experiment is closed so that no further ExperimentRecords or BLOBs can be written to the ESS.
+                </span>
+              </li>
+              <p>
+<li><b>opHeader<br/>
+                StorageStatus <a href="InteractiveSB.asmx?op=ClientCloseExperiment">ClientCloseExperiment</a>(long experimentId)
+        {</b>
+                
+                <span>
+                  <br>Closes an Experiment on the ServiceBroker, if an ESS is associated with this experiment the ESS experiment is closed so that no further ExperimentRecords or BLOBs can be written to the ESS.
+                </span>
+              </li>
+              <p>
+              <li><b>opHeader<br/>
+                StorageStatus <a href="InteractiveSB.asmx?op=OpenExperiment">OpenExperiment</a>(long experimentId, long duration)</b>
+                
+                <span>
+                  <br>Opens an Experiment on the ServiceBroker, if an ESS is associated with this experiment the ESS experiment record is configured so that ExperimentRecords or BLOBs can be written to the ESS.
+                </span>
+              </li>
+              <p>
+<li><b>opHeader<br/>
+                Coupon <a href="InteractiveSB.asmx?op=RequestExperimentAccess">RequestExperimentAccess</a>(long experimentID)</b>
+                
+                <span>
+                  <br>Uses the cridentials granted the experiment specified by the opHeader to check access to the requested experiment, if allowed a new ticket collection is started to access the requested experiment and optional ESS records. Returns null if access denied.
+                </span>
+              </li>
+              <p>
+<li><b>opAuthHeader<br/>
+                string <a href="InteractiveSB.asmx?op=RetrieveAnnotation">RetrieveAnnotation</a>(int experimentID)</b>
+                
+                <span>
+                  <br>Retrieves a previously saved experiment annotation.
+                </span>
+              </li>
+              <p>
+            
+              <li><b>opHeader<br/>
+                ExperimentSummary[] <a href="InteractiveSB.asmx?op=RetrieveExperimentSummary">RetrieveExperimentSummary</a>(Criterion [] carray)</b>
+                
+                <span>
+                  <br>Uses the users qualifiers to select Experiment summaries, no write permissions are created. Valid field names include; userName, groupName, labServerName,clientName, scheduledStart,creationTime, status  and experimentID.
+                </span>
+              </li>
+              <p>
+            
+              <li><b>opHeader<br/>
+                string <a href="InteractiveSB.asmx?op=SaveAnnotation">SaveAnnotation</a>(int experimentID, string annotation)</b>
+                
+                <span>
+                  <br>Saves or modifies an optional user defined annotation to the experiment record.
+                </span>
+              </li>
+              <p>
+</ul>
+            
+              
+            
+              
+            
+              
+            
+              
+            
+             
+            
+             
+            
+             
+            
+              
+            
+
+            
+
+            
+              
+            
+              
+            
+              
+            
+              
+            
+             
+            
+              
+            
+              
+            
+      </span>
+
+      
+      
+
+    <span>
+        
+    </span>
+    
+      
+
+      
+
+    
+  </body>
+</html>
+

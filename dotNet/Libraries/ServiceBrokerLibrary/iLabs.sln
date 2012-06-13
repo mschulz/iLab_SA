@@ -1,0 +1,30 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iLabsArchitecture", "iLabsArchitecture.csproj", "{8C295C05-959B-483C-9F31-62E45FE46543}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBroker", "http://localhost/ServiceBroker/ServiceBroker.csproj", "{1152C708-A38D-47C5-82B1-E3BF9A81D721}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C295C05-959B-483C-9F31-62E45FE46543} = {8C295C05-959B-483C-9F31-62E45FE46543}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{8C295C05-959B-483C-9F31-62E45FE46543}.Debug.ActiveCfg = Debug|.NET
+		{8C295C05-959B-483C-9F31-62E45FE46543}.Debug.Build.0 = Debug|.NET
+		{8C295C05-959B-483C-9F31-62E45FE46543}.Release.ActiveCfg = Release|.NET
+		{8C295C05-959B-483C-9F31-62E45FE46543}.Release.Build.0 = Release|.NET
+		{1152C708-A38D-47C5-82B1-E3BF9A81D721}.Debug.ActiveCfg = Debug|.NET
+		{1152C708-A38D-47C5-82B1-E3BF9A81D721}.Debug.Build.0 = Debug|.NET
+		{1152C708-A38D-47C5-82B1-E3BF9A81D721}.Release.ActiveCfg = Release|.NET
+		{1152C708-A38D-47C5-82B1-E3BF9A81D721}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

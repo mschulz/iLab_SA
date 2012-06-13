@@ -1,0 +1,186 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8C295C05-959B-483C-9F31-62E45FE46543}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>iLabsArchitecture</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>iLabsArchitecture</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;p</DefineConstants>
+    <DocumentationFile>bin\Debug\iLabsArchitecture.XML</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Name>System.Web.Services</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\AdministrativeAPI.cs" />
+    <Compile Include="Administration\AdministrativeUtilities.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authentication\AuthenticationAPI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authorization\AuthCache.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authorization\AuthorizationAPI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authorization\AuthorizationUtilities.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authorization\AuthorizationWrapperClass.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Batch\BatchAPI.cs" />
+    <Compile Include="DataStorage\DataStorageAPI.cs" />
+    <Compile Include="Internal\InternalAdminDB.cs" />
+    <Compile Include="Internal\InternalAuthenticationDB.cs" />
+    <Compile Include="Internal\InternalAuthorizationDB.cs" />
+    <Compile Include="Internal\InternalDataDB.cs" />
+    <Compile Include="Mapping\GroupManagerUserMap.cs" />
+    <Compile Include="Mapping\ResourceMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mapping\ResourceMapManager.cs" />
+    <Compile Include="Mapping\ResourceMapping.cs" />
+    <Compile Include="ServiceBroker\AdminUrl.cs" />
+    <Compile Include="ServiceBroker\BrokerDB.cs" />
+    <Compile Include="ServiceBroker\RecipeExecutor.cs" />
+    <Compile Include="ServiceBroker\ResourceDescriptorFactory.cs" />
+    <Compile Include="ServiceBroker\SBTicketRemover.cs" />
+    <Content Include="Authorization\AuthorizationWrapperClass.aspx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="obj\Debug\iLabsArchitecture.dll" />
+    <Content Include="obj\Debug\iLabsArchitecture.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Proxies\BatchLSProxy\BatchLSProxy.csproj">
+      <Project>{0FCD1E67-C460-4854-9707-61A0F00C75C8}</Project>
+      <Name>BatchLSProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Proxies\ExperimentStorageProxy\ExperimentStorageProxy.csproj">
+      <Project>{B38F998B-CBC3-44F7-AD6F-92CAF022A65C}</Project>
+      <Name>ExperimentStorageProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Proxies\ProcessAgentProxy\ProcessAgentProxy.csproj">
+      <Project>{34C8F4C5-900D-4221-B833-94D01F7E93B7}</Project>
+      <Name>ProcessAgentProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTypes\iLabsDataTypes.csproj">
+      <Project>{ADDE40F3-E299-400B-A842-15ACD58BBF19}</Project>
+      <Name>iLabsDataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessAgentLibrary\ProcessAgentLibrary.csproj">
+      <Project>{1138C760-3D21-4592-BCF0-00C38449F4CC}</Project>
+      <Name>ProcessAgentLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TicketIssuerLibrary\TicketIssuerLibrary.csproj">
+      <Project>{2FED805D-4A8C-4D9B-8339-266CF16394C8}</Project>
+      <Name>TicketIssuerLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilLibrary\UtilLibrary.csproj">
+      <Project>{01C9488D-E7DB-43FD-9C7F-CE3D0206C5B0}</Project>
+      <Name>UtilLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Debug\temp\" />
+    <Folder Include="obj\Release\temp\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

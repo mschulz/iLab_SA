@@ -1,0 +1,24 @@
+Note if Procedures changed, after running the Upgrade 1.0 to  1.0 files
+run the procedure files, all services need PA_Procedures run!
+
+Ticketing:
+PA_Procedures changed
+
+
+ESS:
+Run Upgrade
+Run procedures
+
+
+
+InteractiveSB:
+Run upgrade
+run procedures
+
+
+InteractiveLabServer:
+Not Changed, only PA procedures
+
+Scheduling:
+Not changed, only PA procedures
+
